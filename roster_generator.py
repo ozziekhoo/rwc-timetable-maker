@@ -20,7 +20,7 @@ def gen_dates_times_helper(result, start_day, times_matrix, target_monday):
     if (start_time_meridiem == "pm") and (finish_time_meridiem == "am"):
         result += " ("
         result += days_dict[(start_day+1) % 7]
-        result += "\t"
+        result += " "
         result += (target_monday+timedelta(days=start_day+1)).strftime("%d %b")
         result += ")"
 
@@ -40,7 +40,7 @@ def gen_dates_times(week_offset=0, times_matrix=None):
     # Now we have the target Monday date, format the strings
     result = ""
     if times_matrix['Monday'][0] != "":
-        result += "Monday\t"
+        result += "Monday "
         result += target_monday.strftime("%d %b")
         result += " | "
         result += datetime.strptime(times_matrix['Monday'][0], "%H:%M").strftime("%I:%M %p")
@@ -53,7 +53,7 @@ def gen_dates_times(week_offset=0, times_matrix=None):
         result += "\n"
 
     if times_matrix['Tuesday'][0] != "":
-        result += "Tuesday\t"
+        result += "Tuesday "
         result += (target_monday+timedelta(days=1)).strftime("%d %b")
         result += " | "
         result += datetime.strptime(times_matrix['Tuesday'][0], "%H:%M").strftime("%I:%M %p")
@@ -66,7 +66,7 @@ def gen_dates_times(week_offset=0, times_matrix=None):
         result += "\n"
 
     if times_matrix['Wednesday'][0] != "":
-        result += "Wednesday\t"
+        result += "Wednesday "
         result += (target_monday+timedelta(days=2)).strftime("%d %b")
         result += " | "
         result += datetime.strptime(times_matrix['Wednesday'][0], "%H:%M").strftime("%I:%M %p")
@@ -79,7 +79,7 @@ def gen_dates_times(week_offset=0, times_matrix=None):
         result += "\n"
 
     if times_matrix['Thursday'][0] != "":
-        result += "Thursday\t"
+        result += "Thursday "
         result += (target_monday+timedelta(days=3)).strftime("%d %b")
         result += " | "
         result += datetime.strptime(times_matrix['Thursday'][0], "%H:%M").strftime("%I:%M %p")
@@ -92,7 +92,7 @@ def gen_dates_times(week_offset=0, times_matrix=None):
         result += "\n"
 
     if times_matrix['Friday'][0] != "":
-        result += "Friday\t"
+        result += "Friday "
         result += (target_monday+timedelta(days=4)).strftime("%d %b")
         result += " | "
         result += datetime.strptime(times_matrix['Friday'][0], "%H:%M").strftime("%I:%M %p")
@@ -105,7 +105,7 @@ def gen_dates_times(week_offset=0, times_matrix=None):
         result += "\n"
 
     if times_matrix['Saturday'][0] != "":
-        result += "Saturday\t"
+        result += "Saturday "
         result += (target_monday+timedelta(days=5)).strftime("%d %b")
         result += " | "
         result += datetime.strptime(times_matrix['Saturday'][0], "%H:%M").strftime("%I:%M %p")
@@ -118,7 +118,7 @@ def gen_dates_times(week_offset=0, times_matrix=None):
         result += "\n"
 
     if times_matrix['Sunday'][0] != "":
-        result += "Sunday\t"
+        result += "Sunday "
         result += (target_monday+timedelta(days=6)).strftime("%d %b")
         result += " | "
         result += datetime.strptime(times_matrix['Sunday'][0], "%H:%M").strftime("%I:%M %p")
