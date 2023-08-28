@@ -86,9 +86,6 @@ def gen_dates_times(week_offset=0, times_matrix=None):
         result += " - "
         result += datetime.strptime(times_matrix['Thursday'][1], "%H:%M").strftime("%I:%M %p")
 
-        # Check if the finish time is on the following day
-        finish_time_meridiem = datetime.strptime(times_matrix['Thursday'][1], "%H:%M").strftime("%p").lower()
-
         start_day = 3
         result += gen_dates_times_helper(result, start_day, times_matrix, target_monday)
 
