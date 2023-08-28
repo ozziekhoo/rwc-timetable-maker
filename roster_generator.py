@@ -140,17 +140,18 @@ def format_result(result):
 
     lines = result.split("\n")
 
-    # Find position of "|" character
-    ref_char_index = lines[0].index("|")
+    # Get the length of the longest day within the calendar
+    max_len_index = 0
     for l in lines:
-        if l.index("|") > ref_char_index:
-            ref_char_index = l.index("|")
+        w = l.split(' ')[0]
+        if len(w) > max_len_index:
+            max_len_index = len(w)
 
-    # Add the spaces to the lines
     f_result = ""
     for l in lines:
-        f_result += ' '.join(l.split()[:3])
-        f_result += ' ' * (ref_char_index - len(' '.join(l.split()[:3])))
+        f_result += l.split()[0]
+        f_result += ' ' * (max_len_index - len(l.split()[0]))
+        f_result += ' ' + l.split()[1] + ' ' + l.split()[2] + ' '
         f_result += ' '.join(l.split()[3:])
         f_result += '\n'
 
